@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio I</title>
+    <style>
+        body {
+            font-family: sans-serif;
+             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <h2>Formulario de Notas</h2>
+        <label for="nota1">Nota 1 (10-70):</label>
+        <input type="number" id="nota1" name="nota1" min="10" max="70" required>
+
+        <label for="nota2">Nota 2 (10-70):</label>
+        <input type="number" id="nota2" name="nota2" min="10" max="70" required>
+
+        <label for="nota3">Nota 3 (10-70):</label>
+        <input type="number" id="nota3" name="nota3" min="10" max="70" required>
+
+        <label for="asistencia">Asistencia (0-100%):</label>
+        <input type="number" id="asistencia" name="asistencia" min="0" max="100" required>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <footer id="resultado">
+        {% if promedio is not none %}
+            <p>Promedio: {{ promedio | round(1) }}</p>
+            <p>Estado: {{ estado }}</p>
+        {% endif %}
+    </footer>
+</body>
+</html>
