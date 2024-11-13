@@ -87,8 +87,8 @@
     </form>
     <div class="resultado">
     {% if nombre is not none or longitud is not none %}
-        <p>El nombre más largo es: {{ nombre }}</p>
-        <p>Su longitud es de: {{ longitud }}</p>
+        <p>El nombre con mayor cantidad de caracteres es: {{ nombre }}</p>
+        <p>El nombre tiene: {{ longitud }} caracteres</p>
     {% endif %}
     </div>
     <a href="{{ url_for('index') }}" class="volver-btn">Volver al inicio</a>
