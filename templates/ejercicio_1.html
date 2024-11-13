@@ -40,7 +40,7 @@
             border-radius: 3px;
             cursor: pointer;
         }
-        #resultado {
+        .resultado {
             margin-top: 20px;
             font-weight: bold;
             text-align: center;
@@ -81,12 +81,12 @@
         <input type="submit" value="Enviar">
     </form>
 
-    <footer id="resultado">
+    <div class="resultado">
         {% if promedio is not none %}
             <p>Promedio: {{ promedio | round(1) }}</p>
             <p>Estado: {{ estado }}</p>
         {% endif %}
-    </footer>
+    </div>
     <a href="{{ url_for('index') }}" class="volver-btn">Volver al inicio</a>
 </body>
 </html>

@@ -25,13 +25,23 @@ def ejercicio_1():
             estado = "APROBADO"
         else:
             estado = "REPROBADO"
-
     return render_template('ejercicio_1.html', promedio=promedio, estado=estado)
 
 #Ejercicio 2 -->
-@app.route('/ejercicio_2')
+@app.route('/ejercicio_2', methods=['GET', 'POST'])
 def ejercicio_2():
-    return render_template('ejercicio_2.html')
+    nombre = None
+    longitud = None
+    if request.method == 'POST':
+        nombre1 = request.form.get('nombre1')
+        nombre2 = request.form.get('nombre2')
+        nombre3 = request.form.get('nombre3')
+
+        nombres = [nombre1, nombre2, nombre3]
+        nombre = max(nombres, key=len)
+        longitud = len(nombre)
+
+    return render_template('ejercicio_2.html', nombre=nombre, longitud=longitud)
 
 if __name__ == '__main__':
     app.run()
